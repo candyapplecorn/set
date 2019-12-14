@@ -3,6 +3,12 @@ The pattern-matching game set, as a networked browser-based multiplayer game
 
 ## Updates / Notes
 ##### (_These are like little eenie weenie release notes_)
+##### 2019-12-14
+* Added "NumberRepresentation" and "ComparableCard"
+    * "NumberRepresentation" contains all the digit conversion logic
+    * "ComparableCard" extends "Card" and implements "NumberRepresentation" with a *has-a* pattern.
+* Next step is to create a "Game" class that has a "Board" and "Deck", and can execute Set's pattern-matching rules.
+    * The "Game" could have players, which makes me think the Set rules should live in something other than the "Game" class... Destination for Set's rules logic TBD
 ##### 2019-12-13
 * Changed card attributes all to numbers `[1, 2, 3]`. Changed to numbers for two reasons:
     * It's way easier just to have them as numbers, in terms of using and iterating them throughout the codebase.
