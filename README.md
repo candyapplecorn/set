@@ -4,6 +4,9 @@ The pattern-matching game set, as a networked browser-based multiplayer game
 ## Updates / Notes
 ##### (_These are like little eenie weenie release notes_)
 ##### 2019-12-13
+* Changed card attributes all to numbers `[1, 2, 3]`. Changed to numbers for two reasons:
+    * It's way easier just to have them as numbers, in terms of using and iterating them throughout the codebase.
+    * The view layer should be separated from the game logic; that's just common-sense game design, I hear. Eventually when I get to programming the front end, I can worry about translating `1`, `2` and `3` to `circle`, `square` and `squiggle`, for example.
 * Added "Board".
     * it has a `deck` and a face-up card `zone`
     * it has a helper method to attempt to fill its zone with cards: `ensureXManyCardsInZone` 
