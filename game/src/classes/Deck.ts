@@ -1,3 +1,4 @@
+import { BASE } from "../constants/set";
 import ICard from "../interfaces/ICard";
 import IDeck from "../interfaces/IDeck";
 import Card from "./Card";
@@ -31,11 +32,11 @@ export default class Deck implements IDeck {
     public generateDeck(): ICard[] {
         const sets: number[][] = [];
 
-        for (let color = 0; color < 3; color++) {
-            for (let shape = 0; shape < 3; shape++) {
-                for (let count = 0; count < 3; count++) {
-                    for (let fill = 0; fill < 3; fill++) {
-                        sets.push([color, shape, count, fill]);
+        for (let color = 0; color < BASE; color++) {
+            for (let count = 0; count < BASE; count++) {
+                for (let fill = 0; fill < BASE; fill++) {
+                    for (let shape = 0; shape < BASE; shape++) {
+                        sets.push([color, count, fill, shape]);
                     }
                 }
             }

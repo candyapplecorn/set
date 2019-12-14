@@ -1,4 +1,5 @@
 import { DEFAULT_NUM_ACTIVE_CARDS as twelve } from "../constants/board";
+import { TOTAL_CARDS_IN_GAME } from "../constants/set";
 import Board from "./Board";
 import Deck from "./Deck";
 
@@ -11,7 +12,7 @@ describe("Set Game Board", () => {
 
     it("should initialize with a deck of cards", async () => {
         expect(gameBoard.deck).toBeTruthy();
-        expect(gameBoard.deck.cards).toHaveLength(81);
+        expect(gameBoard.deck.cards).toHaveLength(TOTAL_CARDS_IN_GAME);
     });
 
     it("should accept a deck of cards upon initialization", async () => {
@@ -49,7 +50,7 @@ describe("Set Game Board", () => {
         it("should return false when unable to fill the zone with the amount requested", async () => {
             gameBoard.deck.hit(77);
             expect(gameBoard.ensureXManyCardsInZone(twelve)).toEqual(false);
-            expect(gameBoard.zone).toHaveLength(81 - 77);
+            expect(gameBoard.zone).toHaveLength(TOTAL_CARDS_IN_GAME - 77);
         });
     });
 });

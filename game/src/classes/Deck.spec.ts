@@ -1,3 +1,4 @@
+import { BASE, NUM_CHARACTERISTICS, TOTAL_CARDS_IN_GAME } from "../constants/set";
 import ICard from "../interfaces/ICard";
 import IDeck from "../interfaces/IDeck";
 import Deck from "./Deck";
@@ -9,8 +10,8 @@ describe("Deck", () => {
         deck = new Deck();
     });
 
-    it("should have a list of 81 cards", async () => {
-        expect(deck.cards).toHaveLength(Math.pow(3, 4));
+    it(`should have a list of ${TOTAL_CARDS_IN_GAME} cards`, async () => {
+        expect(deck.cards).toHaveLength(Math.pow(BASE, NUM_CHARACTERISTICS));
     });
 
     describe("hit", () => {
@@ -23,13 +24,13 @@ describe("Deck", () => {
         it("should let the user draw 3 cards", () => {
             const numToHit = 3;
             const cards = deck.hit(numToHit);
-            expect(cards.length + deck.cards.length).toEqual(81);
+            expect(cards.length + deck.cards.length).toEqual(TOTAL_CARDS_IN_GAME);
             expect(cards.length).toEqual(numToHit);
         });
         it("should let the user draw 12 cards", () => {
             const numToHit = 12;
             const cards = deck.hit(numToHit);
-            expect(cards.length + deck.cards.length).toEqual(81);
+            expect(cards.length + deck.cards.length).toEqual(TOTAL_CARDS_IN_GAME);
             expect(cards.length).toEqual(numToHit);
         });
         describe("When the deck is empty", () => {
