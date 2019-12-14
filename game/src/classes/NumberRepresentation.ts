@@ -1,9 +1,8 @@
 import { BASE, NUM_CHARACTERISTICS } from "../constants/set";
 import ICard from "../interfaces/ICard";
 import INumberRepresentation from "../interfaces/INumberRepresentation";
-import Card from "./Card";
 
-export default class NumberRepresentation extends Card implements INumberRepresentation, ICard {
+export default class NumberRepresentation implements INumberRepresentation {
 
     public static numberToDigits(n: number, base: number): number[] {
         const digits: number[] = [];
@@ -27,7 +26,6 @@ export default class NumberRepresentation extends Card implements INumberReprese
     public digits: number[];
 
     constructor(num: ICard | number | number[], base = BASE) {
-        super(num);
         if (Number.isInteger(num as number) && num >= 0) {
             this.val = num as number;
             this.digits = NumberRepresentation.numberToDigits(num as number, base);
