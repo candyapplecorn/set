@@ -1,4 +1,3 @@
-import ATTRIBUTES from '../constants/card';
 import deck from "../interfaces/deck";
 import card from "../interfaces/card";
 import Card from "./Card";
@@ -12,7 +11,7 @@ export default class Deck implements deck {
     }
 
     generateDeck(): card[] {
-        const sets = [];
+        const sets: number[][] = [];
 
         for (let color = 0; color < 3; color++)
             for (let shape = 0; shape < 3; shape++)
@@ -20,14 +19,15 @@ export default class Deck implements deck {
                     for (let fill = 0; fill < 3; fill++)
                         sets.push([color, shape, count, fill]);
 
-        return sets.map(([color, shape, count, fill]) => {
-            return new Card({
-                color: Object.keys(ATTRIBUTES.COLORS)[color],
-                shape: Object.keys(ATTRIBUTES.SHAPES)[shape],
-                count: Object.keys(ATTRIBUTES.COUNTS)[count],
-                fill: Object.keys(ATTRIBUTES.FILLS)[fill],
-            })
-        });
+        return sets.map(([color, shape, count, fill]: number[]): card =>
+            new Card({ color, shape, count, fill })
+        );
+    }
+
+    hit(num: number = 1): card[] {
+        if (this.cards.length === 0) return [];
+        if (num === 1) return [this.cards.pop() as card];
+        return [this.cards.pop() as card, ...this.hit(num - 1)];
     }
 
     public static shuffle<T = card>(list: T[]) {

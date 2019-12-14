@@ -1,25 +1,25 @@
 const COLORS = {
-    RED: 'RED',
-    BLUE: 'BLUE',
-    GREEN: 'GREEN'
+    RED: 1,
+    BLUE: 2,
+    GREEN: 3
 };
 
 const SHAPES = {
-    SQUARE:  'SQUARE',
-    CIRCLE: 'CIRCLE',
-    TRIANGLE: 'TRIANGLE'
+    SQUARE:  1,
+    CIRCLE: 2,
+    TRIANGLE: 3
 };
 
 const COUNTS = {
-    ONE: 'ONE',
-    TWO : 'TWO',
-    THREE: 'THREE'
+    ONE: 1,
+    TWO : 2,
+    THREE: 3
 };
 
 const FILLS = {
-    EMPTY:  'EMPTY',
-    SOLID: 'SOLID',
-    LINES : 'LINES'
+    EMPTY:  1,
+    SOLID: 2,
+    LINES : 3
 };
 
 export default {
