@@ -1,15 +1,15 @@
-import card from "../interfaces/card";
+import ICard from "../interfaces/ICard";
 
-export default class Card implements card {
-    color: number;
-    shape: number;
-    count: number;
-    fill: number;
+export default class Card implements ICard {
+    public color: number;
+    public count: number;
+    public fill: number;
+    public shape: number;
 
-    constructor(card: card) {
+    constructor(card: ICard) {
         this.color = card.color;
-        this.shape = card.shape;
         this.count = card.count;
         this.fill = card.fill;
+        this.shape = card.shape;
     }
 }
