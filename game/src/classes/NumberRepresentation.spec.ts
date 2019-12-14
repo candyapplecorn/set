@@ -1,4 +1,4 @@
-import { fromDigits, toDigits } from "./Base";
+import NumberRepresentation from "./NumberRepresentation";
 
 const toDigitTestCases = [
     [10, 2, [1, 0, 1, 0]],
@@ -11,16 +11,16 @@ const toDigitTestCases = [
     [81, 3, [1, 0, 0, 0, 0]],
 ];
 
-describe("Digits", () => {
+describe("NumberRepresentation", () => {
     describe("Converting a number in a base to its digits", () => {
         it.each(toDigitTestCases)(`should convert %i in base %i to %o`, (...args: any[]) => {
-            expect(toDigits(args[0] as number, args[1] as number)).toEqual(args[2]);
+            expect(new NumberRepresentation(args[0] as number, args[1] as number).digits).toEqual(args[2]);
         });
     });
 
     describe("Converting digits to a number in a base", () => {
         it.each(toDigitTestCases)(`should convert %o in base %i to %i`, (...args: any[]) => {
-            expect(fromDigits(args[2] as number[], args[1] as number)).toEqual(args[0]);
+            expect(new NumberRepresentation(args[2] as number[], args[1] as number).val).toEqual(args[0]);
         });
     });
 });

@@ -1,19 +1,40 @@
-import { BASE } from "../constants/set";
+import { BASE, NUM_CHARACTERISTICS } from "../constants/set";
 import ICard from "../interfaces/ICard";
-import { toDigits, zeroToLength } from "./Base";
+
+function toDigits(n: number, base: number): number[] {
+    const digits: number[] = [];
+    while (n > 0) {
+        digits.unshift(n % base);
+        n = Math.floor(n / base);
+    }
+    return digits;
+}
+
+function fromDigits(digits: number[], base: number): number {
+    let n = 0;
+    digits.forEach((digit) => n = base * n + digit);
+    return n;
+}
+
+function zeroToLength(digits: number[], length: number = NUM_CHARACTERISTICS): number[] {
+    return digits.join("").padStart(length, "0").split("").map(Number);
+}
 
 export default class Card implements ICard {
 
-    public static fromICard({ color, count, fill, shape }: ICard): ICard {
+    public static getCardFromInterface({ color, count, fill, shape }: ICard): ICard {
         return { color, count, fill, shape };
     }
 
-    public static fromDigits([color, count, fill, shape]: number[]): ICard {
+    public static getCardFromDigits([color, count, fill, shape]: number[]): ICard {
         return { color, count, fill, shape };
     }
 
-    public static fromNumber(num: number, base: number = BASE): ICard {
-        const [color, count, fill, shape]: number[] = zeroToLength(toDigits(num, base));
+    public static getCardFromNumber(num: number, base: number = BASE): ICard {
+        const [color, count, fill, shape]: number[] = zeroToLength(
+            toDigits(num, base),
+        );
+
         return { color, count, fill, shape };
     }
 
@@ -29,11 +50,11 @@ export default class Card implements ICard {
         let shape: number;
 
         if (Number.isInteger(card as number) && card >= 0) {
-            ({ color, count, fill, shape } = Card.fromNumber(card as number));
+            ({ color, count, fill, shape } = Card.getCardFromNumber(card as number));
         } else if (Array.isArray(card)) {
-            ({ color, count, fill, shape } = Card.fromDigits(zeroToLength(card) as number[]));
+            ({ color, count, fill, shape } = Card.getCardFromDigits(zeroToLength(card) as number[]));
         } else {
-            ({ color, count, fill, shape } = Card.fromICard(card as ICard));
+            ({ color, count, fill, shape } = Card.getCardFromInterface(card as ICard));
         }
 
         this.color = color;
