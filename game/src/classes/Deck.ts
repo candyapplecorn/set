@@ -1,11 +1,11 @@
 import { BASE } from "../constants/set";
-import ICard from "../interfaces/ICard";
+import IComparableCard from "../interfaces/IComparableCard";
 import IDeck from "../interfaces/IDeck";
-import Card from "./Card";
+import ComparableCard from "./ComparableCard";
 
 export default class Deck implements IDeck {
 
-    public static shuffle<T = ICard>(list: T[]) {
+    public static shuffle<T = IComparableCard>(list: T[]) {
         let currIdx: number = list.length;
         let temp: T;
         let randIdx: number;
@@ -22,14 +22,14 @@ export default class Deck implements IDeck {
         return list;
     }
 
-    public cards: ICard[];
+    public cards: IComparableCard[];
 
     constructor() {
         this.cards = this.generateDeck();
         this.cards = Deck.shuffle(this.cards);
     }
 
-    public generateDeck(): ICard[] {
+    public generateDeck(): IComparableCard[] {
         const sets: number[][] = [];
 
         for (let color = 0; color < BASE; color++) {
@@ -42,14 +42,14 @@ export default class Deck implements IDeck {
             }
         }
 
-        return sets.map(([color, shape, count, fill]: number[]): ICard =>
-            new Card({ color, shape, count, fill }),
+        return sets.map(([color, shape, count, fill]: number[]) =>
+            new ComparableCard({ color, shape, count, fill }),
         );
     }
 
-    public hit(num: number = 1): ICard[] {
+    public hit(num: number = 1): IComparableCard[] {
         if (this.cards.length === 0) { return []; }
-        if (num === 1) { return [this.cards.pop() as ICard]; }
-        return [this.cards.pop() as ICard, ...this.hit(num - 1)];
+        if (num === 1) { return [this.cards.pop() as IComparableCard]; }
+        return [this.cards.pop() as IComparableCard, ...this.hit(num - 1)];
     }
 }

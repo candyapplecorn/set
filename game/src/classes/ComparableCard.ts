@@ -1,14 +1,9 @@
 import { BASE } from "../constants/set";
 import ICard, { IComparableCard } from "../interfaces/ICard";
-import INumberRepresentation from "../interfaces/INumberRepresentation";
 import Card from "./Card";
 import NumberRepresentation from "./NumberRepresentation";
 
-export default class ComparableCard
-    extends
-        Card
-    implements
-        ICard, IComparableCard, INumberRepresentation {
+export default class ComparableCard extends Card implements IComparableCard {
 
     public val: number;
     public digits: number[];
