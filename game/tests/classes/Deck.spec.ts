@@ -1,7 +1,7 @@
-import { BASE, NUM_CHARACTERISTICS, TOTAL_CARDS_IN_GAME } from "../constants/set";
-import ICard from "../interfaces/ICard";
-import IDeck from "../interfaces/IDeck";
-import Deck from "./Deck";
+import { BASE, NUM_CHARACTERISTICS, TOTAL_CARDS_IN_GAME } from "../../src/constants/set";
+import ICard from "../../src/interfaces/ICard";
+import IDeck from "../../src/interfaces/IDeck";
+import Deck from "../../src/classes/Deck";
 
 describe("Deck", () => {
     let deck: IDeck;

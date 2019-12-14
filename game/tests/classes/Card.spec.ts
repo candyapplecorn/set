@@ -1,6 +1,6 @@
-import ATTRIBUTES from "../constants/card";
-import ICard from "../interfaces/ICard";
-import Card from "./Card";
+import ATTRIBUTES from "../../src/constants/card";
+import ICard from "../../src/interfaces/ICard";
+import Card from "../../src/classes/Card";
 
 describe("Card", () => {
     let card: ICard;

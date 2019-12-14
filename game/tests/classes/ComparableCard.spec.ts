@@ -1,4 +1,4 @@
-import ComparableCard from "./ComparableCard";
+import ComparableCard from "../../src/classes/ComparableCard";
 
 describe("Comparable Card", () => {
     it.each([

@@ -1,4 +1,4 @@
-import NumberRepresentation from "./NumberRepresentation";
+import NumberRepresentation from "../../src/classes/NumberRepresentation";
 
 const toDigitTestCases = [
     [10, 2, [1, 0, 1, 0]],

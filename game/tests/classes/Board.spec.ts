@@ -1,7 +1,7 @@
-import { DEFAULT_NUM_ACTIVE_CARDS as twelve } from "../constants/board";
-import { TOTAL_CARDS_IN_GAME } from "../constants/set";
-import Board from "./Board";
-import Deck from "./Deck";
+import { DEFAULT_NUM_ACTIVE_CARDS as twelve } from "../../src/constants/board";
+import { TOTAL_CARDS_IN_GAME } from "../../src/constants/set";
+import Board from "../../src/classes/Board";
+import Deck from "../../src/classes/Deck";
 
 describe("Set Game Board", () => {
     let gameBoard: Board;
