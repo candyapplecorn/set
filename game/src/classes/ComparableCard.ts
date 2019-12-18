@@ -1,5 +1,6 @@
 import { BASE } from "../constants/set";
-import ICard, { IComparableCard } from "../interfaces/ICard";
+import ICard from "../interfaces/ICard";
+import IComparableCard from "../interfaces/IComparableCard";
 import Card from "./Card";
 import NumberRepresentation from "./NumberRepresentation";
 

@@ -4,8 +4,3 @@ export default interface ICard {
     count: number;
     fill: number;
 }
-
-export interface IComparableCard extends ICard {
-    val: number;
-    digits: number[];
-}

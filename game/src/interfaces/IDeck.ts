@@ -1,7 +1,7 @@
-import ICard from "./ICard";
+import IComparableCard from "./IComparableCard";
 
 export default interface IDeck {
-    cards: ICard[];
-    hit: (num?: number) => ICard[];
-    generateDeck: () => ICard[];
+    cards: IComparableCard[];
+    hit: (num?: number) => IComparableCard[];
+    generateDeck: () => IComparableCard[];
 }

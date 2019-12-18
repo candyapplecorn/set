@@ -1,8 +1,10 @@
-import ICard from "./ICard";
+import IComparableCard from "./IComparableCard";
 import IDeck from "./IDeck";
 
-export interface IBoard {
-    zone: ICard[];
+export default interface IBoard {
+    zone: IComparableCard[];
     deck: IDeck;
-    ensureXManyCardsInZone: (x: number) => boolean;
+    ensureXManyCardsInZone(x: number): boolean;
+    removeSet(set: IComparableCard[]): boolean;
+    addXCards(x?: number): boolean;
 }

@@ -28,7 +28,7 @@ export default class NumberRepresentation implements INumberRepresentation {
     constructor(num: ICard | number | number[], base = BASE) {
         if (Number.isInteger(num as number) && num >= 0) {
             this.val = num as number;
-            this.digits = NumberRepresentation.numberToDigits(num as number, base);
+            this.digits = NumberRepresentation.zeroToLength(NumberRepresentation.numberToDigits(num as number, base));
         } else if (Array.isArray(num)) {
             this.val = NumberRepresentation.numberFromDigits(num as number[], base);
             this.digits = NumberRepresentation.zeroToLength(num);

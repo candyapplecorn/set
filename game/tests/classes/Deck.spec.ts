@@ -2,6 +2,7 @@ import { BASE, NUM_CHARACTERISTICS, TOTAL_CARDS_IN_GAME } from "../../src/consta
 import ICard from "../../src/interfaces/ICard";
 import IDeck from "../../src/interfaces/IDeck";
 import Deck from "../../src/classes/Deck";
+import IComparableCard from "../../src/interfaces/IComparableCard";
 
 describe("Deck", () => {
     let deck: IDeck;
@@ -12,6 +13,16 @@ describe("Deck", () => {
 
     it(`should have a list of ${TOTAL_CARDS_IN_GAME} cards`, async () => {
         expect(deck.cards).toHaveLength(Math.pow(BASE, NUM_CHARACTERISTICS));
+    });
+
+    it('should have four digits for every card', async () => {
+        expect(deck.cards.every((card: IComparableCard) => card.digits.length === 4)).toBeTruthy();
+        const expectedNums = [];
+        for (let i = 0; i < 80; i++) {
+            expectedNums.push(i);
+        }
+        const nums = deck.cards.map(c => c.val);
+        expect(nums).toEqual(expect.arrayContaining(expectedNums));
     });
 
     describe("hit", () => {
