@@ -3,6 +3,9 @@ The pattern-matching game set, as a networked browser-based multiplayer game
 
 ## Updates / Notes
 ##### (_These are like little eenie weenie release notes_)
+##### 2019-12-17
+* Added "Game" and "Self Playing Game" classes.
+    * SelfPlayingGame runs a loop with one player in a "Solitare" mode; it exists just to be tested, and its test show the Card, Board, Deck and Player classes all work together and can be used to play a game of Set.
 ##### 2019-12-14
 * Added "NumberRepresentation" and "ComparableCard"
     * "NumberRepresentation" contains all the digit conversion logic
